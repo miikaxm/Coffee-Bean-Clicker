@@ -5,8 +5,6 @@ body {
     padding: 0;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
     height: 100vh;
 }
 
@@ -16,18 +14,14 @@ h1 {
 }
 
 button {
-    background-color: #4CAF50;
-    color: white;
     border: none;
-    padding: 15px 30px;
-    font-size: 18px;
-    border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-}
+    appearance: none;
+    background-color: inherit;
+  }
 
-button:hover {
-    background-color: #45a049;
+button {
+    transition: transform 0.7s ease-in-out;
 }
 
 .counter {
@@ -42,4 +36,27 @@ button:hover {
     background: white;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.store {
+    margin: 0 auto;
+    text-align: center;
+    width: 300px;
+    height: 300px;
+}
+
+.upgrade {
+    margin-bottom: 10px;
+    height: 60px;
+    text-align: left;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+}
+
+.upgrade:hover {
+    background-color: #f9f9f9;
+    border-color: #999;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: scale(1.02);
+    cursor: pointer;
 }

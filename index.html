@@ -7,20 +7,49 @@
     <title>Clicker peli</title>
 </head>
 <body>
-    <h1 style="display: inline-block;">Clicks:</h1>
-    <h1 id="clicks" style="display: inline-block;">0</h1><br>
-    <p style="display: inline-block;">Money per second:</p>
-    <p id="clickSecond" style="display: inline-block;">0</p><br>
-    <button id="btnClick">Click</button><br>
+    <nav>
+    </nav>
+    <div class="container">
+        <h1 style="display: inline-block;">Coffee beans:</h1>
+        <h1 id="clicks" style="display: inline-block;">0</h1><br>
 
-    <p style="display: inline-block;">2x Click power for:</p>
-    <p id="clickUpgradeCost" style="display: inline-block;">50</p><br>
-    <button id="btnClickUpgrade">Buy</button><br>
+        <p id="bps">Beans per second: 0</p>
 
-    <p id="passiveUpgradeValue" style="display: inline-block;">+100</p>
-    <p style="display: inline-block;">Passive money for:</p>
-    <p id="passiveUpgradeCost" style="display: inline-block;">500</p><br>
-    <button id="btnPassiveUpgrade">Buy</button>
+        <button id="btnClick">
+            <img src="img/kahvipapu.jpg" alt="kahvipapu" style="max-width: 100px;">
+        </button><br>
+        <p style="display: inline-block;">2x Click power for:</p>
+        <p id="clickUpgradeCost" style="display: inline-block;">50</p><br>
+        <button id="btnClickUpgrade">Buy</button><br>
+        <p id="passiveUpgradeValue" style="display: inline-block;">+100</p>
+        <p style="display: inline-block;">Passive beans for:</p>
+        <p id="passiveUpgradeCost" style="display: inline-block;">500</p><br>
+        <button id="btnPassiveUpgrade">Buy</button>
+    </div><br>
+
+    <div class="container">
+        <h1>Store</h1>
+        <div class="store">
+            <div class="upgrade" id="coffeeMachine">
+                <img src="img/coffeMachine.png" alt="coffeemachine" style="width: 40px; padding-left: 10px;">
+                <h2 style="display: inline; position: absolute; margin: 0; padding-left: 20px; padding-top: 5px;">Coffee Machine</h2>
+                <h3 id="coffeeMachineCostLabel" style="display: inline; padding-left: 20px; position: absolute; margin: 0; padding-top: 32px;">10 Beans</h3>
+                <h3 id="coffeeMachineValue" style="float: right; margin: 0; padding-right: 15px; padding-top: 20px; color: gray;">0</h3>
+            </div>
+            <div class="upgrade" id="coffeeFactory">
+                <img src="img/coffeeFactory.png" alt="coffeemachine" style="width: 57px; padding-left: 1px;">
+                <h2 style="display: inline; position: absolute; margin: 0; padding-left: 10px; padding-top: 5px;">Coffee Factory</h2>
+                <h3 id="coffeeFactoryCostLabel" style="display: inline; padding-left: 10px; position: absolute; margin: 0; padding-top: 32px;">100 Beans</h3>
+                <h3 id="coffeeFactoryValue" style="float: right; margin: 0; padding-right: 15px; padding-top: 20px; color: gray;">0</h3>
+            </div>
+            <div class="upgrade">
+                <h2></h2>
+            </div>
+            <div class="upgrade">
+                <h2></h2>
+            </div>
+        </div>
+    </div>
 
     <script src="main.js"></script>
 </body>
