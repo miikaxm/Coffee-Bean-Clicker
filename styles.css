@@ -60,3 +60,12 @@ button {
     transform: scale(1.02);
     cursor: pointer;
 }
+
+.clickUpgrade {
+    margin-bottom: 5px;
+    height: 50px;
+    width: 50px;
+    text-align: center;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+}
