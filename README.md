@@ -1,31 +1,23 @@
-# Clickr-peli
-Clickr-peli on yksinkertainen klikkauspeli, jossa tavoitteena on kerätä mahdollisimman paljon pisteitä klikkaamalla painiketta. 
+# Coffee Bean Clicker
 
-## Ominaisuudet
-- Pisteiden laskenta reaaliajassa
-- Käyttäjäystävällinen käyttöliittymä
-- Helppo aloittaa ja pelata
+Coffee Bean Clicker is an engaging and addictive incremental game where players click to collect coffee beans and unlock upgrades to boost their production. The goal is to grow your coffee empire by automating the process and reaching new milestones.
 
-## Asennus
-1. Lataa tai kloonaa tämä repositorio:
-    ```bash
-    git clone https://github.com/kayttaja/clickr-peli.git
-    ```
-2. Siirry projektikansioon:
-    ```bash
-    cd clickr-peli
-    ```
-3. Avaa `index.html` selaimessa.
+## Features
+- **Simple Gameplay**: Click to collect coffee beans.
+- **Upgrades**: Purchase upgrades to increase your bean production.
+- **Automation**: Unlock tools and workers to automate the clicking process.
+- **Achievements**: Earn rewards for reaching specific goals.
+- **Progression**: Expand your coffee empire and discover new features.
 
-## Käyttö
-- Klikkaa painiketta kerätäksesi pisteitä.
-- Yritä saavuttaa korkein mahdollinen pistemäärä!
+## How to Play
+1. Start by clicking the coffee bean to collect beans.
+2. Use the beans to buy upgrades and tools.
+3. Automate your production to earn beans even when you're not clicking.
+4. Keep upgrading and expanding to maximize your coffee bean collection.
 
-## Kehitys
-Jos haluat osallistua kehitykseen:
-1. Forkkaa tämä repositorio.
-2. Tee muutokset omassa haarassasi.
-3. Lähetä pull request.
+## Future Plans
+- Add new upgrades and tools.
+- Introduce special events and challenges.
+- Implement leaderboards to compete with friends.
 
-## Lisenssi
-Tämä projekti on lisensoitu MIT-lisenssillä.
+Enjoy building your coffee empire in Coffee Bean Clicker!
