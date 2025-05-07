@@ -5,7 +5,7 @@ document.getElementById("coffeeFactory").addEventListener("click", CoffeeFactory
 document.getElementById("coffeeGalaxy").addEventListener("click", CoffeeGalaxy)
 
 // Money
-let Beans = 10000000
+let Beans = 0
 
 // Money income
 let clickPower = 1
@@ -100,7 +100,7 @@ function CoffeeMachine(){
     }
     if (Beans >= coffeeMachineCost) {
         Beans = Beans - coffeeMachineCost
-        coffeeMachineIncome = 1 * Math.pow(1.15, coffeeMachines + 1)
+        coffeeMachineIncome += 1 * Math.pow(1.15, coffeeMachines + 1)
         coffeeMachineCost = parseFloat((coffeeMachineCost * 1.15).toFixed(2))
         coffeeMachines += 1
         updateCosts()
@@ -118,7 +118,7 @@ function CoffeeFarm(){
     }
     if (Beans >= coffeeFarmCost) {
         Beans = Beans - coffeeFarmCost
-        coffeeFarmIncome = 10 * Math.pow(1.15, coffeeFarms + 1)
+        coffeeFarmIncome += 10 * Math.pow(1.15, coffeeFarms + 1)
         coffeeFarmCost = parseFloat((coffeeFarmCost * 1.16).toFixed(2))
         coffeeFarms += 1
         updateCosts()
@@ -136,7 +136,7 @@ function CoffeeFactory(){
     }
     if (Beans >= coffeeFactoryCost) {
         Beans = Beans - coffeeFactoryCost
-        coffeeFactoryIncome = 100 * Math.pow(1.15, coffeeFactorys + 1)
+        coffeeFactoryIncome += 100 * Math.pow(1.15, coffeeFactorys + 1)
         coffeeFactoryCost = parseFloat((coffeeFactoryCost * 1.17).toFixed(2))
         coffeeFactorys += 1
         updateCosts()
@@ -154,7 +154,7 @@ function CoffeeGalaxy(){
     }
     if (Beans >= coffeeGalaxyCost) {
         Beans = Beans - coffeeGalaxyCost
-        coffeeGalaxyIncome = 1000 * Math.pow(1.15, coffeeGalaxys + 1)
+        coffeeGalaxyIncome += 1000 * Math.pow(1.15, coffeeGalaxys + 1)
         coffeeGalaxyCost = parseFloat((coffeeGalaxyCost * 1.18).toFixed(2))
         coffeeGalaxys += 1
         updateCosts()
@@ -209,7 +209,19 @@ function formatCost(cost) {
     document.getElementById("coffeeGalaxyValue").innerText = coffeeGalaxys
 
     // Beans Per Second
-    document.getElementById("bps").innerText = "Beans per second: " + (coffeeFactoryIncome + coffeeMachineIncome + coffeeFarmIncome + coffeeGalaxyIncome).toFixed(2)
+    let allIncome = coffeeFactoryIncome + coffeeMachineIncome + coffeeFarmIncome + coffeeGalaxyIncome
+    const bpsText = document.getElementById("bps")
+    if (allIncome >= 1e12) {
+        bpsText.innerText = "Beans per second: " + (allIncome / 1e12).toFixed(2) + "T"; // Trillion
+    } else if (allIncome >= 1e9) {
+        bpsText.innerText = "Beans per second: " + (allIncome / 1e9).toFixed(2) + "B"; // Billion
+    } else if (allIncome >= 1e6) {
+        bpsText.innerText = "Beans per second: " + (allIncome / 1e6).toFixed(2) + "M"; // Million
+    } else if (allIncome >= 1e3) {
+        bpsText.innerText = "Beans per second: " + (allIncome / 1e3).toFixed(2) + "K"; // Thousand
+    } else {
+        bpsText.innerText = "Beans per second: " + allIncome.toFixed(2);
+    }
 }
 
 // Click päivitykset 
