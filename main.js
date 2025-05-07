@@ -14,7 +14,7 @@ let coffeeGalaxyMax = false
 let superFarmBoost = false // 1 min välein +5% kokonaistuotto hetkellisesti
 
 // Money
-let Beans = 9999999999999999999999999999999999999999999999
+let Beans = 99999999000
 
 // Money income
 let clickPower = 1
