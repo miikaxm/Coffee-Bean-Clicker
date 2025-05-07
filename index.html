@@ -8,25 +8,36 @@
     <title>Clicker peli</title>
 </head>
 <body>
-    <nav>
-    </nav>
     <div class="container">
-        <h1 style="display: inline-block;">Coffee beans:</h1>
-        <h1 id="clicks" style="display: inline-block;">0</h1><br>
-        <h2 id="bps">Beans per second: 0</h2>
-        <button id="btnClick">
-            <img src="img/kahvipapu.jpg" alt="kahvipapu" style="max-width: 100px;">
-        </button><br>
-        <h2 id="bpc">Beans per click: 1</h2>
+        <div style="width:370px;">
+            <h1></h1>
+        </div>
+        <div id="clickArea" style="width:370px;">
+            <h1 style="display: inline-block;">Coffee beans:</h1>
+            <h1 id="clicks" style="display: inline-block;">0</h1><br>
+            <h2 id="bps">Beans per second: 0</h2>
+            <button id="btnClick">
+                <img src="img/kahvipapu.jpg" alt="kahvipapu" style="max-width: 100px;">
+            </button><br>
+            <h2 id="bpc">Beans per click: 1</h2>
+        </div>
+        <div id="powerUps" style="width:370px;">
+            <!-- <h1 style="display: inline;">Super farm boost</h1>
+            <button style="background-color: #4CAF50; color: white; padding: 10px 20px; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: background-color 0.3s ease;">
+                Enable (1 min)
+            </button> -->
+        </div>
+
+        
     </div><br>
 
     <div class="container" style="padding-bottom: 900px;">
-        <h1>Passive Upgrades</h1>
         <div class="store">
+            <h1>Passive Upgrades</h1>
             <div class="upgrade" id="coffeeMachine">
                 <img src="img/coffeMachine.png" alt="coffeemachine" style="width: 40px; padding-left: 10px;">
                 <h2 style="display: inline; position: absolute; margin: 0; padding-left: 20px; padding-top: 5px;">Coffee Machine</h2>
-                <h3 id="coffeeMachineCostLabel" style="display: inline; padding-left: 20px; position: absolute; margin: 0; padding-top: 32px;">50 Beans</h3>
+                <h3 id="coffeeMachineCostLabel" style="display: inline; padding-left: 20px; position: absolute; margin: 0; padding-top: 32px;">50.00 Beans</h3>
                 <h3 id="coffeeMachineValue" style="float: right; margin: 0; padding-right: 15px; padding-top: 20px; color: gray;">0</h3>
             </div>
             <div id="coffeeFarm" class="upgrade">
@@ -128,6 +139,11 @@
         </div>
     </div>
 
+    <div id="popup" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: white; padding: 20px; border: 2px solid black; z-index: 1000; text-align: center; border-radius: 5px;">
+        <h2 id="popupMessage"></h2>
+        <p id="popupText"></p>
+        <button onclick="closePopup()">Close</button>
+    </div>
 
     <script src="main.js"></script>
     

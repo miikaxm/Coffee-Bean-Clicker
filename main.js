@@ -4,8 +4,17 @@ document.getElementById("coffeeFarm").addEventListener("click", CoffeeFarm)
 document.getElementById("coffeeFactory").addEventListener("click", CoffeeFactory)
 document.getElementById("coffeeGalaxy").addEventListener("click", CoffeeGalaxy)
 
+// Max levels
+let coffeeMachineMax = false
+let coffeeFarmMax = false
+let coffeeFactoryMax = false
+let coffeeGalaxyMax = false
+
+// Boosts
+let superFarmBoost = false // 1 min välein +5% kokonaistuotto hetkellisesti
+
 // Money
-let Beans = 0
+let Beans = 9999999999999999999999999999999999999999999999
 
 // Money income
 let clickPower = 1
@@ -14,6 +23,8 @@ let coffeeMachineIncome = 0
 let coffeeFarmIncome = 0
 let coffeeFactoryIncome = 0
 let coffeeGalaxyIncome = 0
+
+let FullPassiveMoney = coffeeFarmIncome+coffeeGalaxyIncome+coffeeFactoryIncome+coffeeMachineIncome
 
 // Money income upgrades
 let coffeeMachineCost = 50
@@ -82,10 +93,7 @@ function updateClicks() {
 }
 
 function passiveMoney(){
-    Beans += coffeeMachineIncome;
-    Beans += coffeeFarmIncome;
-    Beans += coffeeFactoryIncome;
-    Beans += coffeeGalaxyIncome;
+    Beans += FullPassiveMoney;
     updateClicks();
 }
 
@@ -105,6 +113,7 @@ function CoffeeMachine(){
         coffeeMachines += 1
         updateCosts()
         updateClicks()
+        checkMilestones()
     } else {
         console.log("Rahat ei riitä machine upgradeen")
         return
@@ -123,6 +132,7 @@ function CoffeeFarm(){
         coffeeFarms += 1
         updateCosts()
         updateClicks()
+        checkMilestones()
     } else {
         console.log("Rahat ei riitä farm upgradeen")
         return
@@ -141,6 +151,7 @@ function CoffeeFactory(){
         coffeeFactorys += 1
         updateCosts()
         updateClicks()
+        checkMilestones()
     } else {
         console.log("Rahat ei riitä factory upgradeen")
         return
@@ -159,15 +170,34 @@ function CoffeeGalaxy(){
         coffeeGalaxys += 1
         updateCosts()
         updateClicks()
+        checkMilestones()
     } else {
         console.log("Rahat ei riitä galaxy upgradeen")
         return
     }
 }
 
+function checkIfMax(){
+    if (coffeeMachines >= 100) coffeeMachineMax = true;
+    if (coffeeFarms >= 100) coffeeFarmMax = true;
+    if (coffeeFactorys >= 100) coffeeFactoryMax = true;
+    if (coffeeGalaxys >= 100) coffeeGalaxyMax = true;
+}
+
 function updateCosts(){
     // Update bpc
-    document.getElementById("bpc").innerText = "Beans per click: " + clickPower
+    let bpcText = document.getElementById("bpc")
+    if (clickPower >= 1e12) {
+        bpcText.innerText = "Beans per click: " + (clickPower / 1e12).toFixed(2) + "T"; // Trillion
+    } else if (clickPower >= 1e9) {
+        bpcText.innerText = "Beans per click: " + (clickPower / 1e9).toFixed(2) + "B"; // Billion
+    } else if (clickPower >= 1e6) {
+        bpcText.innerText = "Beans per click: " + (clickPower / 1e6).toFixed(2) + "M"; // Million
+    } else if (clickPower >= 1e3) {
+        bpcText.innerText = "Beans per click: " + (clickPower / 1e3).toFixed(2) + "K"; // Thousand
+    } else {
+        bpcText.innerText = "Beans per click: " + clickPower.toFixed(2);
+    }
 
     // Hinnat
     document.getElementById("coffeeMachineCostLabel").innerText = formatCost(coffeeMachineCost) + " Beans"
@@ -191,7 +221,9 @@ function updateCosts(){
 
 
 function formatCost(cost) {
-    if (cost >= 1000000000) {
+    if (cost >= 1e12) {
+        return (cost / 1e12).toFixed(2) + "T"
+    } else if (cost >= 1000000000) {
         return (cost / 1000000000).toFixed(2) + "B";
     } else if (cost >= 1000000) {
         return (cost / 1000000).toFixed(2) + "M";
@@ -264,4 +296,82 @@ function updateClickUpgradeUI(index) {
         document.getElementById(`clickUpgradeCost-${index}`).innerText = "(purchased)";
         div.onclick = null; // Poistaa klikkauksen
     }
+}
+
+// Pop up
+function showPopup(messageOtsiokko, messageTeksti) {
+    const popup = document.getElementById('popup');
+    const popupMessage = document.getElementById('popupMessage');
+    const popupText = document.getElementById("popupText");
+    popupText.textContent = messageTeksti
+    popupMessage.textContent = messageOtsiokko;
+    popup.style.display = 'block';
+}
+
+function closePopup() {
+    const popup = document.getElementById('popup');
+    popup.style.display = 'none';
+}
+
+// Milestonet
+function checkMilestones(){
+
+    // Coffee Machine Milestones
+    if (coffeeMachines === 25) coffeeMachineIncome *= 1.5, showPopup("Overclocked Brew (LVL 25 Coffee machine)", "Coffee Machinen tuotto +50%");
+    if (coffeeMachines === 50) coffeeMachineIncome *= 2, showPopup("Automated Cleaning (LVL 50 Coffee machine)", "Coffee Machine tuotto +100%");
+    if (coffeeMachines === 75) clickPower *= 1.2, showPopup("Quantum Espresso Circuit (LVL 75 Coffee machine)", "Kaikkien click power -päivitysten teho +20%");
+    if (coffeeMachines === 100 && coffeeMachineMax == false){
+        coffeeMachineIncome *= 3;
+        clickPower += 1;
+        coffeeMachineMax = true
+        showPopup("Bean Singularity (LVL 100 Coffee machine)", "Coffee Machine tuotto x3 ja +1 Beans per click")
+    }
+
+    // Coffee Farms Milestones
+    if (coffeeFarms === 25) coffeeFarmIncome *= 1.5, showPopup("Organic Certification (LVL 25 Coffee farm)", "Farmien tuotto +50%");
+    if (coffeeFarms === 50) coffeeFarmIncome *= 2, showPopup("Automated Harvesters (LVL 50 Coffee farm)", "Farmien tuotto +100%");
+    if (coffeeFarms === 75) {
+        coffeeMachineIncome *= 1.1;
+        coffeeFarmIncome *= 1.1;
+        coffeeFactoryIncome *= 1.1;
+        coffeeGalaxyIncome *= 1.1;
+        showPopup("Eco Terraforming (LVL 75 Coffee farm)", "Kaikkien passiivituottojen kokonaisteho +10%")
+    }
+    if (coffeeFarms === 100 && coffeeFarmMax == false){
+        coffeeFarmIncome *= 3
+        superFarmBoost = true
+        coffeeFarmMax = true
+        showPopup("Bio-Engineered Soil (LVL 100 Coffee farm)", "Coffee Farm tuotto x3 ja unlockaa Super Farm Boost (1 min välein +5% kokonaistuotto hetkellisesti)")
+    }
+
+    // Coffee Factory Milestones
+    if (coffeeFactorys === 25) coffeeFactoryIncome *= 1.5, showPopup("Efficient Assembly Line (LVL 25 Coffee factory)", "Factoryn tuotto +50%");
+    if (coffeeFactorys === 50) coffeeFactoryIncome *= 2, showPopup("AI Quality Control (LVL 50 Coffee factory)", "Factoryn tuotto +100%");
+    if (coffeeFactorys === 75) clickPower *= 1.3, showPopup("Robo-Bean Synthesizer (LVL 75 Coffee factory)", "Kaikkien click power -päivitysten teho +30%");
+    if (coffeeFactorys === 100 && coffeeFactoryMax == false){
+        coffeeFactoryIncome *= 4;
+        FullPassiveMoney *= 1.1;
+        coffeeFactoryMax = true
+        showPopup("Infinite Bean Loop (LVL 100 Coffee factory)", "Factory tuotto x4 ja passiivinen tuotto +10% globaalisti")
+    }
+
+    // Coffee Galaxy Milestones
+    if (coffeeGalaxys === 25) coffeeGalaxyIncome *= 1.5, showPopup("Gravitational Brew Field (LVL 25 Coffee galaxy)", "Galaxy tuotto +50%");
+    if (coffeeGalaxys === 50) coffeeGalaxyIncome *= 2, showPopup("Time-Distilled Beans (LVL 50 Coffee galaxy)", "Galaxy tuotto +100%");
+    if (coffeeGalaxys === 75) {
+        coffeeMachineIncome *= 1.05;
+        coffeeFarmIncome *= 1.05;
+        coffeeFactoryIncome *= 1.05;
+        coffeeGalaxyIncome *= 1.05;
+        showPopup("Wormhole Delivery (LVL 75 Coffee galaxy)", "Kaikki passiiviset tuottajat tuottavat +5%")
+    }
+    if (coffeeGalaxys === 100 && coffeeGalaxyMax == false){
+        coffeeGalaxyIncome *= 5;
+        FullPassiveMoney *= 1.25;
+        coffeeGalaxyMax = true
+        showPopup("Cosmic Bean Singularity (LVL 100 Coffee galaxy)", "Galaxy tuotto x5 ja Beans per second +25% universaalisesti")
+    }
+    updateCosts()
+
+    
 }
