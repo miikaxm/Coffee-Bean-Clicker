@@ -32,12 +32,52 @@ function click(event){
     updateClicks()
 }
 
-function updateClicks(){
+function updateClicks() {
     let clickText = document.getElementById("clicks");
-    if (Beans > 0) {
-        clickText.innerText = Beans.toFixed(2);
+    if (Beans >= 1e63) {
+        clickText.innerText = (Beans / 1e63).toFixed(2) + "Vg"; // Vigintillion
+    } else if (Beans >= 1e60) {
+        clickText.innerText = (Beans / 1e60).toFixed(2) + "Nv"; // Novemdecillion
+    } else if (Beans >= 1e57) {
+        clickText.innerText = (Beans / 1e57).toFixed(2) + "Oc"; // Octodecillion
+    } else if (Beans >= 1e54) {
+        clickText.innerText = (Beans / 1e54).toFixed(2) + "Sp"; // Septendecillion
+    } else if (Beans >= 1e51) {
+        clickText.innerText = (Beans / 1e51).toFixed(2) + "Sd"; // Sexdecillion
+    } else if (Beans >= 1e48) {
+        clickText.innerText = (Beans / 1e48).toFixed(2) + "Qd"; // Quindecillion
+    } else if (Beans >= 1e45) {
+        clickText.innerText = (Beans / 1e45).toFixed(2) + "Qn"; // Quattuordecillion
+    } else if (Beans >= 1e42) {
+        clickText.innerText = (Beans / 1e42).toFixed(2) + "Tn"; // Tredecillion
+    } else if (Beans >= 1e39) {
+        clickText.innerText = (Beans / 1e39).toFixed(2) + "Dn"; // Duodecillion
+    } else if (Beans >= 1e36) {
+        clickText.innerText = (Beans / 1e36).toFixed(2) + "Un"; // Undecillion
+    } else if (Beans >= 1e33) {
+        clickText.innerText = (Beans / 1e33).toFixed(2) + "Dc"; // Decillion
+    } else if (Beans >= 1e30) {
+        clickText.innerText = (Beans / 1e30).toFixed(2) + "No"; // Nonillion
+    } else if (Beans >= 1e27) {
+        clickText.innerText = (Beans / 1e27).toFixed(2) + "Oc"; // Octillion
+    } else if (Beans >= 1e24) {
+        clickText.innerText = (Beans / 1e24).toFixed(2) + "Sp"; // Septillion
+    } else if (Beans >= 1e21) {
+        clickText.innerText = (Beans / 1e21).toFixed(2) + "Sx"; // Sextillion
+    } else if (Beans >= 1e18) {
+        clickText.innerText = (Beans / 1e18).toFixed(2) + "Qi"; // Quintillion
+    } else if (Beans >= 1e15) {
+        clickText.innerText = (Beans / 1e15).toFixed(2) + "Q"; // Quadrillion
+    } else if (Beans >= 1e12) {
+        clickText.innerText = (Beans / 1e12).toFixed(2) + "T"; // Trillion
+    } else if (Beans >= 1e9) {
+        clickText.innerText = (Beans / 1e9).toFixed(2) + "B"; // Billion
+    } else if (Beans >= 1e6) {
+        clickText.innerText = (Beans / 1e6).toFixed(2) + "M"; // Million
+    } else if (Beans >= 1e3) {
+        clickText.innerText = (Beans / 1e3).toFixed(2) + "K"; // Thousand
     } else {
-        clickText.innerText = Beans
+        clickText.innerText = Beans.toFixed(2);
     }
 }
 
@@ -126,6 +166,9 @@ function CoffeeGalaxy(){
 }
 
 function updateCosts(){
+    // Update bpc
+    document.getElementById("bpc").innerText = "Beans per click: " + clickPower
+
     // Hinnat
     document.getElementById("coffeeMachineCostLabel").innerText = formatCost(coffeeMachineCost) + " Beans"
     document.getElementById("coffeeFarmCostLabel").innerText = formatCost(coffeeFarmCost) + " Beans"
@@ -196,6 +239,7 @@ const clickUpgrades = [
         upgrade.purchased = true;
         updateClicks();
         updateClickUpgradeUI(index);
+        updateCosts();
     } else {
         console.log("Et voi ostaa: " + upgrade.name);
     }

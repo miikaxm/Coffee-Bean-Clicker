@@ -12,22 +12,14 @@
     <div class="container">
         <h1 style="display: inline-block;">Coffee beans:</h1>
         <h1 id="clicks" style="display: inline-block;">0</h1><br>
-
         <p id="bps">Beans per second: 0</p>
-
         <button id="btnClick">
             <img src="img/kahvipapu.jpg" alt="kahvipapu" style="max-width: 100px;">
         </button><br>
-        <p style="display: inline-block;">2x Click power for:</p>
-        <p id="clickUpgradeCost" style="display: inline-block;">50</p><br>
-        <button id="btnClickUpgrade">Buy</button><br>
-        <p id="passiveUpgradeValue" style="display: inline-block;">+100</p>
-        <p style="display: inline-block;">Passive beans for:</p>
-        <p id="passiveUpgradeCost" style="display: inline-block;">500</p><br>
-        <button id="btnPassiveUpgrade">Buy</button>
+        <p id="bpc">Beans per click: 0</p>
     </div><br>
 
-    <div class="container">
+    <div class="container" style="padding-bottom: 900px;">
         <h1>Passive Upgrades</h1>
         <div class="store">
             <div class="upgrade" id="coffeeMachine">
@@ -63,76 +55,75 @@
                 <h3 id="clickUpgradeCost-0" style="display: inline; padding-left: 10px; position: absolute; margin: 0; padding-top: 32px;">500 Beans</h3>
             </div>
             <div id="clickUpgrade-1" class="upgrade" onclick="buyClickUpgrade(1)">
-                <img src="img/galaxy.png" alt="coffeegalaxy" style="width: 57px; padding-left: 1px;">
+                <img src="img/double-tap.png" alt="coffeegalaxy" style="width: 57px; padding-left: 1px;">
                 <h2 style="display: inline; position: absolute; margin: 0; padding-left: 10px; padding-top: 5px;">Double Tap</h2>
                 <h3 id="clickUpgradeCost-1" style="display: inline; padding-left: 10px; position: absolute; margin: 0; padding-top: 32px;">1,500 Beans</h3>
             </div>
             <div id="clickUpgrade-2" class="upgrade" onclick="buyClickUpgrade(2)">
-                <img src="img/galaxy.png" alt="coffeegalaxy" style="width: 57px; padding-left: 1px;">
+                <img src="img/expresso.png" alt="coffeegalaxy" style="width: 57px; padding-left: 1px;">
                 <h2 style="display: inline; position: absolute; margin: 0; padding-left: 10px; padding-top: 5px;">Espresso Slam</h2>
                 <h3 id="clickUpgradeCost-2" style="display: inline; padding-left: 10px; position: absolute; margin: 0; padding-top: 32px;">4,500 Beans</h3>
             </div>
             <div id="clickUpgrade-3" class="upgrade" onclick="buyClickUpgrade(3)">
-                <img src="img/galaxy.png" alt="coffeegalaxy" style="width: 57px; padding-left: 1px;">
+                <img src="img/mechaPointer.png" alt="coffeegalaxy" style="width: 57px; padding-left: 1px;">
                 <h2 style="display: inline; position: absolute; margin: 0; padding-left: 10px; padding-top: 5px;">Mecha Pointer</h2>
                 <h3 id="clickUpgradeCost-3" style="display: inline; padding-left: 10px; position: absolute; margin: 0; padding-top: 32px;">13,000 Beans</h3>
             </div>
             <div id="clickUpgrade-4" class="upgrade" onclick="buyClickUpgrade(4)">
-                <img src="img/galaxy.png" alt="coffeegalaxy" style="width: 57px; padding-left: 1px;">
+                <img src="img/multiTouchDisplay.png" alt="coffeegalaxy" style="width: 57px; padding-left: 1px;">
                 <h2 style="display: inline; position: absolute; margin: 0; padding-left: 10px; padding-top: 5px;">Multi-Touch Display</h2>
                 <h3 id="clickUpgradeCost-4" style="display: inline; padding-left: 10px; position: absolute; margin: 0; padding-top: 32px;">39,000 Beans</h3>
             </div>
             <div id="clickUpgrade-5" class="upgrade" onclick="buyClickUpgrade(5)">
-                <img src="img/galaxy.png" alt="coffeegalaxy" style="width: 57px; padding-left: 1px;">
+                <img src="img/rapidPressor.png" alt="coffeegalaxy" style="width: 57px; padding-left: 1px;">
                 <h2 style="display: inline; position: absolute; margin: 0; padding-left: 10px; padding-top: 5px;">Rapid Pressor</h2>
                 <h3 id="clickUpgradeCost-5" style="display: inline; padding-left: 10px; position: absolute; margin: 0; padding-top: 32px;">117,000 Beans</h3>
             </div>
             <div id="clickUpgrade-6" class="upgrade" onclick="buyClickUpgrade(6)">
-                <img src="img/galaxy.png" alt="coffeegalaxy" style="width: 57px; padding-left: 1px;">
+                <img src="img/nanoClicker.png" alt="coffeegalaxy" style="width: 57px; padding-left: 1px;">
                 <h2 style="display: inline; position: absolute; margin: 0; padding-left: 10px; padding-top: 5px;">Nano Clicker</h2>
                 <h3 id="clickUpgradeCost-6" style="display: inline; padding-left: 10px; position: absolute; margin: 0; padding-top: 32px;">351,000 Beans</h3>
             </div>
             <div id="clickUpgrade-7" class="upgrade" onclick="buyClickUpgrade(7)">
-                <img src="img/galaxy.png" alt="coffeegalaxy" style="width: 57px; padding-left: 1px;">
+                <img src="img/neuro.png" alt="coffeegalaxy" style="width: 57px; padding-left: 1px;">
                 <h2 style="display: inline; position: absolute; margin: 0; padding-left: 10px; padding-top: 5px;">Neuro-Coffee Pulse</h2>
                 <h3 id="clickUpgradeCost-7" style="display: inline; padding-left: 10px; position: absolute; margin: 0; padding-top: 32px;">1,050,000 Beans</h3>
             </div>
             <div id="clickUpgrade-8" class="upgrade" onclick="buyClickUpgrade(8)">
-                <img src="img/galaxy.png" alt="coffeegalaxy" style="width: 57px; padding-left: 1px;">
+                <img src="img/Telekinetic.png" alt="coffeegalaxy" style="width: 57px; padding-left: 1px;">
                 <h2 style="display: inline; position: absolute; margin: 0; padding-left: 10px; padding-top: 5px;">Telekinetic Brew</h2>
                 <h3 id="clickUpgradeCost-8" style="display: inline; padding-left: 10px; position: absolute; margin: 0; padding-top: 32px;">3,200,000 Beans</h3>
             </div>
             <div id="clickUpgrade-9" class="upgrade" onclick="buyClickUpgrade(9)">
-                <img src="img/galaxy.png" alt="coffeegalaxy" style="width: 57px; padding-left: 1px;">
+                <img src="img/timeloop.png" alt="coffeegalaxy" style="width: 57px; padding-left: 1px;">
                 <h2 style="display: inline; position: absolute; margin: 0; padding-left: 10px; padding-top: 5px;">Time Looper</h2>
                 <h3 id="clickUpgradeCost-9" style="display: inline; padding-left: 10px; position: absolute; margin: 0; padding-top: 32px;">9,500,000 Beans</h3>
             </div>
             <div id="clickUpgrade-10" class="upgrade" onclick="buyClickUpgrade(10)">
-                <img src="img/galaxy.png" alt="coffeegalaxy" style="width: 57px; padding-left: 1px;">
+                <img src="img/clickengine.png" alt="coffeegalaxy" style="width: 57px; padding-left: 1px;">
                 <h2 style="display: inline; position: absolute; margin: 0; padding-left: 10px; padding-top: 5px;">Click Engine</h2>
                 <h3 id="clickUpgradeCost-10" style="display: inline; padding-left: 10px; position: absolute; margin: 0; padding-top: 32px;">28,000,000 Beans</h3>
             </div>
             <div id="clickUpgrade-11" class="upgrade" onclick="buyClickUpgrade(11)">
-                <img src="img/galaxy.png" alt="coffeegalaxy" style="width: 57px; padding-left: 1px;">
+                <img src="img/clickfarm.png" alt="coffeegalaxy" style="width: 57px; padding-left: 1px;">
                 <h2 style="display: inline; position: absolute; margin: 0; padding-left: 10px; padding-top: 5px;">Click Farm</h2>
                 <h3 id="clickUpgradeCost-11" style="display: inline; padding-left: 10px; position: absolute; margin: 0; padding-top: 32px;">84,000,000,Beans</h3>
             </div>
             <div id="clickUpgrade-12" class="upgrade" onclick="buyClickUpgrade(12)">
-                <img src="img/galaxy.png" alt="coffeegalaxy" style="width: 57px; padding-left: 1px;">
+                <img src="img/blackbeanstar.png" alt="coffeegalaxy" style="width: 57px; padding-left: 1px;">
                 <h2 style="display: inline; position: absolute; margin: 0; padding-left: 10px; padding-top: 5px;">Black Bean Star</h2>
                 <h3 id="clickUpgradeCost-12" style="display: inline; padding-left: 10px; position: absolute; margin: 0; padding-top: 32px;">250,000,000 Beans</h3>
             </div>
             <div id="clickUpgrade-13" class="upgrade" onclick="buyClickUpgrade(13)">
-                <img src="img/galaxy.png" alt="coffeegalaxy" style="width: 57px; padding-left: 1px;">
+                <img src="img/clickverse.png" alt="coffeegalaxy" style="width: 57px; padding-left: 1px;">
                 <h2 style="display: inline; position: absolute; margin: 0; padding-left: 10px; padding-top: 5px;">Clickverse</h2>
                 <h3 id="clickUpgradeCost-13" style="display: inline; padding-left: 10px; position: absolute; margin: 0; padding-top: 32px;">750,000,000 Beans</h3>    
             </div>
             <div id="clickUpgrade-14" class="upgrade" onclick="buyClickUpgrade(14)">
-                <img src="img/galaxy.png" alt="coffeegalaxy" style="width: 57px; padding-left: 1px;">
+                <img src="img/godclick.png" alt="coffeegalaxy" style="width: 57px; padding-left: 1px;">
                 <h2 style="display: inline; position: absolute; margin: 0; padding-left: 10px; padding-top: 5px;">God Click</h2>
                 <h3 id="clickUpgradeCost-14" style="display: inline; padding-left: 10px; position: absolute; margin: 0; padding-top: 32px;">2,250,000,000 Beans</h3>
             </div>
-
         </div>
     </div>
 
