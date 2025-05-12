@@ -3,6 +3,8 @@ document.getElementById("coffeeMachine").addEventListener("click", CoffeeMachine
 document.getElementById("coffeeFarm").addEventListener("click", CoffeeFarm)
 document.getElementById("coffeeFactory").addEventListener("click", CoffeeFactory)
 document.getElementById("coffeeGalaxy").addEventListener("click", CoffeeGalaxy)
+document.addEventListener("DOMContentLoaded", Boosts);
+document.getElementById("SuperFarmBoost").addEventListener("click", superFarmBoostFunc)
 
 // Max levels
 let coffeeMachineMax = false
@@ -93,7 +95,7 @@ function updateClicks() {
 }
 
 function passiveMoney(){
-    Beans += FullPassiveMoney;
+    Beans += coffeeFarmIncome+coffeeGalaxyIncome+coffeeFactoryIncome+coffeeMachineIncome;
     updateClicks();
 }
 
@@ -341,7 +343,7 @@ function checkMilestones(){
         coffeeFarmIncome *= 3
         superFarmBoost = true
         coffeeFarmMax = true
-        showPopup("Bio-Engineered Soil (LVL 100 Coffee farm)", "Coffee Farm tuotto x3 ja unlockaa Super Farm Boost (1 min välein +5% kokonaistuotto hetkellisesti)")
+        showPopup("Bio-Engineered Soil (LVL 100 Coffee farm)", "Coffee Farm tuotto x3 ja unlockaa Super Farm Boost (10 min välein +10% kokonaistuotto 5 minuutiksi)")
     }
 
     // Coffee Factory Milestones
@@ -372,6 +374,29 @@ function checkMilestones(){
         showPopup("Cosmic Bean Singularity (LVL 100 Coffee galaxy)", "Galaxy tuotto x5 ja Beans per second +25% universaalisesti")
     }
     updateCosts()
+    Boosts()
+}
 
-    
+function Boosts(){
+    if (superFarmBoost == false){
+        const superFarmBoostButton = document.getElementById("SuperFarmBoost");
+        if (superFarmBoostButton) {
+            superFarmBoostButton.style.backgroundColor = "#d3d3d3"; // Light gray
+            superFarmBoostButton.style.color = "#808080"; // Dark gray
+            superFarmBoostButton.style.cursor = "not-allowed";
+            superFarmBoostButton.style.border = "1px solid #a9a9a9"; // Gray border
+        }
+    } else {
+        const superFarmBoostButton = document.getElementById("SuperFarmBoost");
+        superFarmBoostButton.style.backgroundColor = "#4CAF50"
+        superFarmBoostButton.style.color = "white"
+        superFarmBoostButton.style.cursor = "pointer"
+        superFarmBoostButton.style.border = "none"
+    }
+}
+
+function superFarmBoostFunc(){
+    if (superFarmBoost == true){
+        console.log("Super Farm Boost aktivoitu")
+    }
 }
