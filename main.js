@@ -13,10 +13,11 @@ let coffeeFactoryMax = false
 let coffeeGalaxyMax = false
 
 // Boosts
-let superFarmBoost = false // 1 min välein +5% kokonaistuotto hetkellisesti
+let superFarmBoost = false // 10 min välein +10% kokonaistuotto 3 minuutiksi
+
 
 // Money
-let Beans = 99999999000
+let Beans = 0
 
 // Money income
 let clickPower = 1
@@ -343,7 +344,7 @@ function checkMilestones(){
         coffeeFarmIncome *= 3
         superFarmBoost = true
         coffeeFarmMax = true
-        showPopup("Bio-Engineered Soil (LVL 100 Coffee farm)", "Coffee Farm tuotto x3 ja unlockaa Super Farm Boost (10 min välein +10% kokonaistuotto 5 minuutiksi)")
+        showPopup("Bio-Engineered Soil (LVL 100 Coffee farm)", "Coffee Farm tuotto x3 ja unlockaa Super Farm Boost (10 min välein +10% kokonaistuotto 3 minuutiksi)")
     }
 
     // Coffee Factory Milestones
@@ -395,8 +396,40 @@ function Boosts(){
     }
 }
 
-function superFarmBoostFunc(){
-    if (superFarmBoost == true){
-        console.log("Super Farm Boost aktivoitu")
+function superFarmBoostFunc() {
+    if (!superFarmBoost) {
+        console.log("Super Farm Boost ei ole käytettävissä.");
+        return;
     }
+
+    superFarmBoost = false; // Disable the boost until it can be used again
+    const originalIncome = coffeeFarmIncome + coffeeGalaxyIncome + coffeeFactoryIncome + coffeeMachineIncome;
+
+    // Apply the boost
+    const boostedIncome = originalIncome * 0.1; // +10% kokonaistuotto
+    coffeeFarmIncome += boostedIncome * (coffeeFarmIncome / originalIncome);
+    coffeeGalaxyIncome += boostedIncome * (coffeeGalaxyIncome / originalIncome);
+    coffeeFactoryIncome += boostedIncome * (coffeeFactoryIncome / originalIncome);
+    coffeeMachineIncome += boostedIncome * (coffeeMachineIncome / originalIncome);
+
+    updateCosts();
+    console.log("Super Farm Boost aktivoitu! +10% kokonaistuotto 3 minuutiksi.");
+
+    // Revert the boost after 3 minutes
+    setTimeout(() => {
+        coffeeFarmIncome -= boostedIncome * (coffeeFarmIncome / originalIncome);
+        coffeeGalaxyIncome -= boostedIncome * (coffeeGalaxyIncome / originalIncome);
+        coffeeFactoryIncome -= boostedIncome * (coffeeFactoryIncome / originalIncome);
+        coffeeMachineIncome -= boostedIncome * (coffeeMachineIncome / originalIncome);
+
+        updateCosts();
+        console.log("Super Farm Boost on päättynyt.");
+    }, 3 * 60 * 1000); // 3 minutes
+
+    // Re-enable the boost after 10 minutes
+    setTimeout(() => {
+        superFarmBoost = true;
+        Boosts();
+        console.log("Super Farm Boost on jälleen käytettävissä.");
+    }, 10 * 60 * 1000); // 10 minutes
 }
