@@ -6,6 +6,24 @@ document.getElementById("coffeeGalaxy").addEventListener("click", CoffeeGalaxy)
 document.addEventListener("DOMContentLoaded", Boosts);
 document.getElementById("SuperFarmBoost").addEventListener("click", superFarmBoostFunc)
 
+// 25 Levels
+let coffeeMachine25 = false
+let coffeeFarm25 = false
+let coffeeFactory25 = false
+let coffeeGalaxy25 = false
+
+// 50 levels
+let coffeeMachine50 = false
+let coffeeFarm50 = false
+let coffeeFactory50 = false
+let coffeeGalaxy50 = false
+
+// 75 levels
+let coffeeMachine75 = false
+let coffeeFarm75 = false
+let coffeeFactory75 = false
+let coffeeGalaxy75 = false
+
 // Max levels
 let coffeeMachineMax = false
 let coffeeFarmMax = false
@@ -15,9 +33,8 @@ let coffeeGalaxyMax = false
 // Boosts
 let superFarmBoost = false // 10 min välein +10% kokonaistuotto 3 minuutiksi
 
-
 // Money
-let Beans = 0
+let Beans = 9999999999999999999999999999999
 
 // Money income
 let clickPower = 1
@@ -318,11 +335,16 @@ function closePopup() {
 
 // Milestonet
 function checkMilestones(){
-
+    
     // Coffee Machine Milestones
-    if (coffeeMachines === 25) coffeeMachineIncome *= 1.5, showPopup("Overclocked Brew (LVL 25 Coffee machine)", "Coffee Machinen tuotto +50%");
-    if (coffeeMachines === 50) coffeeMachineIncome *= 2, showPopup("Automated Cleaning (LVL 50 Coffee machine)", "Coffee Machine tuotto +100%");
-    if (coffeeMachines === 75) clickPower *= 1.2, showPopup("Quantum Espresso Circuit (LVL 75 Coffee machine)", "Kaikkien click power -päivitysten teho +20%");
+    if (coffeeMachines === 25 && coffeeMachine25 == false) {
+        coffeeMachineIncome *= 1.5;
+        coffeeMachine25 = true
+        showPopup("Overclocked Brew (LVL 25 Coffee machine)", "Coffee Machinen tuotto +50%");
+        
+    }
+    if (coffeeMachines === 50  && coffeeMachine50 == false) coffeeMachine50 = true, coffeeMachineIncome *= 2, showPopup("Automated Cleaning (LVL 50 Coffee machine)", "Coffee Machine tuotto +100%");
+    if (coffeeMachines === 75  && coffeeMachine75 == false) coffeeMachine75 = true, clickPower *= 1.2, showPopup("Quantum Espresso Circuit (LVL 75 Coffee machine)", "Kaikkien click power -päivitysten teho +20%");
     if (coffeeMachines === 100 && coffeeMachineMax == false){
         coffeeMachineIncome *= 3;
         clickPower += 1;
@@ -331,13 +353,14 @@ function checkMilestones(){
     }
 
     // Coffee Farms Milestones
-    if (coffeeFarms === 25) coffeeFarmIncome *= 1.5, showPopup("Organic Certification (LVL 25 Coffee farm)", "Farmien tuotto +50%");
-    if (coffeeFarms === 50) coffeeFarmIncome *= 2, showPopup("Automated Harvesters (LVL 50 Coffee farm)", "Farmien tuotto +100%");
-    if (coffeeFarms === 75) {
+    if (coffeeFarms === 25 && coffeeFarm25 == false) coffeeFarm25 = true, coffeeFarmIncome *= 1.5, showPopup("Organic Certification (LVL 25 Coffee farm)", "Farmien tuotto +50%");
+    if (coffeeFarms === 50 && coffeeFarm50 == false) coffeeFarm50 = true, coffeeFarmIncome *= 2, showPopup("Automated Harvesters (LVL 50 Coffee farm)", "Farmien tuotto +100%");
+    if (coffeeFarms === 75 && coffeeFarm75 == false) {
         coffeeMachineIncome *= 1.1;
         coffeeFarmIncome *= 1.1;
         coffeeFactoryIncome *= 1.1;
         coffeeGalaxyIncome *= 1.1;
+        coffeeFarm75 = true;
         showPopup("Eco Terraforming (LVL 75 Coffee farm)", "Kaikkien passiivituottojen kokonaisteho +10%")
     }
     if (coffeeFarms === 100 && coffeeFarmMax == false){
@@ -348,9 +371,9 @@ function checkMilestones(){
     }
 
     // Coffee Factory Milestones
-    if (coffeeFactorys === 25) coffeeFactoryIncome *= 1.5, showPopup("Efficient Assembly Line (LVL 25 Coffee factory)", "Factoryn tuotto +50%");
-    if (coffeeFactorys === 50) coffeeFactoryIncome *= 2, showPopup("AI Quality Control (LVL 50 Coffee factory)", "Factoryn tuotto +100%");
-    if (coffeeFactorys === 75) clickPower *= 1.3, showPopup("Robo-Bean Synthesizer (LVL 75 Coffee factory)", "Kaikkien click power -päivitysten teho +30%");
+    if (coffeeFactorys === 25 && coffeeFactory25 == false) coffeeFactory25 = true, coffeeFactoryIncome *= 1.5, showPopup("Efficient Assembly Line (LVL 25 Coffee factory)", "Factoryn tuotto +50%");
+    if (coffeeFactorys === 50 && coffeeFactory50 == false) coffeeFactory50 = true, coffeeFactoryIncome *= 2, showPopup("AI Quality Control (LVL 50 Coffee factory)", "Factoryn tuotto +100%");
+    if (coffeeFactorys === 75 && coffeeFactory75 == false) coffeeFactory75 = true, clickPower *= 1.3, showPopup("Robo-Bean Synthesizer (LVL 75 Coffee factory)", "Kaikkien click power -päivitysten teho +30%");
     if (coffeeFactorys === 100 && coffeeFactoryMax == false){
         coffeeFactoryIncome *= 4;
         FullPassiveMoney *= 1.1;
@@ -359,13 +382,14 @@ function checkMilestones(){
     }
 
     // Coffee Galaxy Milestones
-    if (coffeeGalaxys === 25) coffeeGalaxyIncome *= 1.5, showPopup("Gravitational Brew Field (LVL 25 Coffee galaxy)", "Galaxy tuotto +50%");
-    if (coffeeGalaxys === 50) coffeeGalaxyIncome *= 2, showPopup("Time-Distilled Beans (LVL 50 Coffee galaxy)", "Galaxy tuotto +100%");
-    if (coffeeGalaxys === 75) {
+    if (coffeeGalaxys === 25 && coffeeGalaxy25 == false) coffeeGalaxy25 = true, coffeeGalaxyIncome *= 1.5, showPopup("Gravitational Brew Field (LVL 25 Coffee galaxy)", "Galaxy tuotto +50%");
+    if (coffeeGalaxys === 50 && coffeeGalaxy50 == false) coffeeGalaxy50 = true, coffeeGalaxyIncome *= 2, showPopup("Time-Distilled Beans (LVL 50 Coffee galaxy)", "Galaxy tuotto +100%");
+    if (coffeeGalaxys === 75 && coffeeGalaxy75 == false) {
         coffeeMachineIncome *= 1.05;
         coffeeFarmIncome *= 1.05;
         coffeeFactoryIncome *= 1.05;
         coffeeGalaxyIncome *= 1.05;
+        coffeeGalaxy75 = true;
         showPopup("Wormhole Delivery (LVL 75 Coffee galaxy)", "Kaikki passiiviset tuottajat tuottavat +5%")
     }
     if (coffeeGalaxys === 100 && coffeeGalaxyMax == false){
@@ -382,10 +406,10 @@ function Boosts(){
     if (superFarmBoost == false){
         const superFarmBoostButton = document.getElementById("SuperFarmBoost");
         if (superFarmBoostButton) {
-            superFarmBoostButton.style.backgroundColor = "#d3d3d3"; // Light gray
-            superFarmBoostButton.style.color = "#808080"; // Dark gray
+            superFarmBoostButton.style.backgroundColor = "#d3d3d3";
+            superFarmBoostButton.style.color = "#808080";
             superFarmBoostButton.style.cursor = "not-allowed";
-            superFarmBoostButton.style.border = "1px solid #a9a9a9"; // Gray border
+            superFarmBoostButton.style.border = "1px solid #a9a9a9";
         }
     } else {
         const superFarmBoostButton = document.getElementById("SuperFarmBoost");
@@ -398,38 +422,36 @@ function Boosts(){
 
 function superFarmBoostFunc() {
     if (!superFarmBoost) {
-        console.log("Super Farm Boost ei ole käytettävissä.");
-        return;
+        console.log("Super Farm Boost ei ole käytettävissä.")
+        return
     }
 
-    superFarmBoost = false; // Disable the boost until it can be used again
-    const originalIncome = coffeeFarmIncome + coffeeGalaxyIncome + coffeeFactoryIncome + coffeeMachineIncome;
+    superFarmBoost = false
+    const originalIncome = coffeeFarmIncome + coffeeGalaxyIncome + coffeeFactoryIncome + coffeeMachineIncome
 
     // Apply the boost
-    const boostedIncome = originalIncome * 0.1; // +10% kokonaistuotto
-    coffeeFarmIncome += boostedIncome * (coffeeFarmIncome / originalIncome);
-    coffeeGalaxyIncome += boostedIncome * (coffeeGalaxyIncome / originalIncome);
-    coffeeFactoryIncome += boostedIncome * (coffeeFactoryIncome / originalIncome);
-    coffeeMachineIncome += boostedIncome * (coffeeMachineIncome / originalIncome);
+    const boostedIncome = originalIncome * 0.1
+    coffeeFarmIncome += boostedIncome * (coffeeFarmIncome / originalIncome)
+    coffeeGalaxyIncome += boostedIncome * (coffeeGalaxyIncome / originalIncome)
+    coffeeFactoryIncome += boostedIncome * (coffeeFactoryIncome / originalIncome)
+    coffeeMachineIncome += boostedIncome * (coffeeMachineIncome / originalIncome)
 
-    updateCosts();
-    console.log("Super Farm Boost aktivoitu! +10% kokonaistuotto 3 minuutiksi.");
+    updateCosts()
+    console.log("Super Farm Boost aktivoitu! +10% kokonaistuotto 3 minuutiksi.")
 
-    // Revert the boost after 3 minutes
     setTimeout(() => {
-        coffeeFarmIncome -= boostedIncome * (coffeeFarmIncome / originalIncome);
-        coffeeGalaxyIncome -= boostedIncome * (coffeeGalaxyIncome / originalIncome);
-        coffeeFactoryIncome -= boostedIncome * (coffeeFactoryIncome / originalIncome);
-        coffeeMachineIncome -= boostedIncome * (coffeeMachineIncome / originalIncome);
+        coffeeFarmIncome -= boostedIncome * (coffeeFarmIncome / originalIncome)
+        coffeeGalaxyIncome -= boostedIncome * (coffeeGalaxyIncome / originalIncome)
+        coffeeFactoryIncome -= boostedIncome * (coffeeFactoryIncome / originalIncome)
+        coffeeMachineIncome -= boostedIncome * (coffeeMachineIncome / originalIncome)
 
-        updateCosts();
-        console.log("Super Farm Boost on päättynyt.");
-    }, 3 * 60 * 1000); // 3 minutes
+        updateCosts()
+        console.log("Super Farm Boost on päättynyt.")
+    }, 3 * 60 * 1000) // 3 minuuttia
 
-    // Re-enable the boost after 10 minutes
     setTimeout(() => {
-        superFarmBoost = true;
-        Boosts();
-        console.log("Super Farm Boost on jälleen käytettävissä.");
-    }, 10 * 60 * 1000); // 10 minutes
+        superFarmBoost = true
+        Boosts()
+        console.log("Super Farm Boost on jälleen käytettävissä.")
+    }, 10 * 60 * 1000) // 10 minuuttia
 }
