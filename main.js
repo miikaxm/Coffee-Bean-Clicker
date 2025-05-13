@@ -333,63 +333,63 @@ function checkMilestones(){
     if (coffeeMachines === 25 && coffeeMachine25 == false) {
         coffeeMachineIncome *= 1.5;
         coffeeMachine25 = true
-        showPopup("Overclocked Brew (LVL 25 Coffee machine)", "Coffee Machinen tuotto +50%");
+        showPopup("Overclocked Brew (LVL 25 Coffee machine)", "Coffee Machine production +50%");
         
     }
-    if (coffeeMachines === 50  && coffeeMachine50 == false) coffeeMachine50 = true, coffeeMachineIncome *= 2, showPopup("Automated Cleaning (LVL 50 Coffee machine)", "Coffee Machine tuotto +100%");
-    if (coffeeMachines === 75  && coffeeMachine75 == false) coffeeMachine75 = true, clickPower *= 1.2, showPopup("Quantum Espresso Circuit (LVL 75 Coffee machine)", "Kaikkien click power -päivitysten teho +20%");
+    if (coffeeMachines === 50  && coffeeMachine50 == false) coffeeMachine50 = true, coffeeMachineIncome *= 2, showPopup("Automated Cleaning (LVL 50 Coffee machine)", "Coffee Machine production +100%");
+    if (coffeeMachines === 75  && coffeeMachine75 == false) coffeeMachine75 = true, clickPower *= 1.2, showPopup("Quantum Espresso Circuit (LVL 75 Coffee machine)", "All click power upgrades effectiveness +20%");
     if (coffeeMachines === 100 && coffeeMachineMax == false){
         coffeeMachineIncome *= 3;
         clickPower += 1;
         coffeeMachineMax = true
-        showPopup("Bean Singularity (LVL 100 Coffee machine)", "Coffee Machine tuotto x3 ja +1 Beans per click")
+        showPopup("Bean Singularity (LVL 100 Coffee machine)", "Coffee Machine production x3 and +1 Beans per click")
     }
 
     // Coffee Farms Milestones
-    if (coffeeFarms === 25 && coffeeFarm25 == false) coffeeFarm25 = true, coffeeFarmIncome *= 1.5, showPopup("Organic Certification (LVL 25 Coffee farm)", "Farmien tuotto +50%");
-    if (coffeeFarms === 50 && coffeeFarm50 == false) coffeeFarm50 = true, coffeeFarmIncome *= 2, showPopup("Automated Harvesters (LVL 50 Coffee farm)", "Farmien tuotto +100%");
+    if (coffeeFarms === 25 && coffeeFarm25 == false) coffeeFarm25 = true, coffeeFarmIncome *= 1.5, showPopup("Organic Certification (LVL 25 Coffee farm)", "Farm production +50%");
+    if (coffeeFarms === 50 && coffeeFarm50 == false) coffeeFarm50 = true, coffeeFarmIncome *= 2, showPopup("Automated Harvesters (LVL 50 Coffee farm)", "Farm production +100%");
     if (coffeeFarms === 75 && coffeeFarm75 == false) {
         coffeeMachineIncome *= 1.1;
         coffeeFarmIncome *= 1.1;
         coffeeFactoryIncome *= 1.1;
         coffeeGalaxyIncome *= 1.1;
         coffeeFarm75 = true;
-        showPopup("Eco Terraforming (LVL 75 Coffee farm)", "Kaikkien passiivituottojen kokonaisteho +10%")
+        showPopup("Eco Terraforming (LVL 75 Coffee farm)", "All passive income sources effectiveness +10%")
     }
     if (coffeeFarms === 100 && coffeeFarmMax == false){
         coffeeFarmIncome *= 3
         superFarmBoost = true
         coffeeFarmMax = true
-        showPopup("Bio-Engineered Soil (LVL 100 Coffee farm)", "Coffee Farm tuotto x3 ja unlockaa Super Farm Boost (10 min välein +10% kokonaistuotto 3 minuutiksi)")
+        showPopup("Bio-Engineered Soil (LVL 100 Coffee farm)", "Farm production x3 and unlocks Super Farm Boost (+10% total production every 10 minutes for 3 minutes)")
     }
 
     // Coffee Factory Milestones
-    if (coffeeFactorys === 25 && coffeeFactory25 == false) coffeeFactory25 = true, coffeeFactoryIncome *= 1.5, showPopup("Efficient Assembly Line (LVL 25 Coffee factory)", "Factoryn tuotto +50%");
-    if (coffeeFactorys === 50 && coffeeFactory50 == false) coffeeFactory50 = true, coffeeFactoryIncome *= 2, showPopup("AI Quality Control (LVL 50 Coffee factory)", "Factoryn tuotto +100%");
-    if (coffeeFactorys === 75 && coffeeFactory75 == false) coffeeFactory75 = true, clickPower *= 1.3, showPopup("Robo-Bean Synthesizer (LVL 75 Coffee factory)", "Kaikkien click power -päivitysten teho +30%");
+    if (coffeeFactorys === 25 && coffeeFactory25 == false) coffeeFactory25 = true, coffeeFactoryIncome *= 1.5, showPopup("Efficient Assembly Line (LVL 25 Coffee factory)", "Factory production +50%");
+    if (coffeeFactorys === 50 && coffeeFactory50 == false) coffeeFactory50 = true, coffeeFactoryIncome *= 2, showPopup("AI Quality Control (LVL 50 Coffee factory)", "Factory production +100%");
+    if (coffeeFactorys === 75 && coffeeFactory75 == false) coffeeFactory75 = true, clickPower *= 1.3, showPopup("Robo-Bean Synthesizer (LVL 75 Coffee factory)", "All click power upgrades effectiveness +30%");
     if (coffeeFactorys === 100 && coffeeFactoryMax == false){
         coffeeFactoryIncome *= 4;
         FullPassiveMoney *= 1.1;
         coffeeFactoryMax = true
-        showPopup("Infinite Bean Loop (LVL 100 Coffee factory)", "Factory tuotto x4 ja passiivinen tuotto +10% globaalisti")
+        showPopup("Infinite Bean Loop (LVL 100 Coffee factory)", "Factory production x4 and passive income +10% globally")
     }
 
     // Coffee Galaxy Milestones
-    if (coffeeGalaxys === 25 && coffeeGalaxy25 == false) coffeeGalaxy25 = true, coffeeGalaxyIncome *= 1.5, showPopup("Gravitational Brew Field (LVL 25 Coffee galaxy)", "Galaxy tuotto +50%");
-    if (coffeeGalaxys === 50 && coffeeGalaxy50 == false) coffeeGalaxy50 = true, coffeeGalaxyIncome *= 2, showPopup("Time-Distilled Beans (LVL 50 Coffee galaxy)", "Galaxy tuotto +100%");
+    if (coffeeGalaxys === 25 && coffeeGalaxy25 == false) coffeeGalaxy25 = true, coffeeGalaxyIncome *= 1.5, showPopup("Gravitational Brew Field (LVL 25 Coffee galaxy)", "Galaxy production +50%");
+    if (coffeeGalaxys === 50 && coffeeGalaxy50 == false) coffeeGalaxy50 = true, coffeeGalaxyIncome *= 2, showPopup("Time-Distilled Beans (LVL 50 Coffee galaxy)", "Galaxy production +100%");
     if (coffeeGalaxys === 75 && coffeeGalaxy75 == false) {
         coffeeMachineIncome *= 1.05;
         coffeeFarmIncome *= 1.05;
         coffeeFactoryIncome *= 1.05;
         coffeeGalaxyIncome *= 1.05;
         coffeeGalaxy75 = true;
-        showPopup("Wormhole Delivery (LVL 75 Coffee galaxy)", "Kaikki passiiviset tuottajat tuottavat +5%")
+        showPopup("Wormhole Delivery (LVL 75 Coffee galaxy)", "All passive producers generate +5% more")
     }
     if (coffeeGalaxys === 100 && coffeeGalaxyMax == false){
         coffeeGalaxyIncome *= 5;
         FullPassiveMoney *= 1.25;
         coffeeGalaxyMax = true
-        showPopup("Cosmic Bean Singularity (LVL 100 Coffee galaxy)", "Galaxy tuotto x5 ja Beans per second +25% universaalisesti")
+        showPopup("Cosmic Bean Singularity (LVL 100 Coffee galaxy)", "Galaxy production x5 and Beans per second +25% universally")
     }
     updateCosts()
     Boosts()
