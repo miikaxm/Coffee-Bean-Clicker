@@ -1,23 +1,15 @@
-# Coffee Bean Clicker
+# Klikkeripeli
 
-Coffee Bean Clicker is an engaging and addictive incremental game where players click to collect coffee beans and unlock upgrades to boost their production. The goal is to grow your coffee empire by automating the process and reaching new milestones.
+Tämä on yksinkertainen ja mukaansatempaava klikkauspeli, jossa pelaajien tavoitteena on kerätä pisteitä klikkaamalla painiketta. Peli on suunniteltu helppokäyttöiseksi ja koukuttavaksi, ja siinä on ominaisuuksia, kuten päivityksiä, saavutuksia ja etenemismekaniikkoja, jotka pitävät pelaajat viihdytettyinä.
 
-## Features
-- **Simple Gameplay**: Click to collect coffee beans.
-- **Upgrades**: Purchase upgrades to increase your bean production.
-- **Automation**: Unlock tools and workers to automate the clicking process.
-- **Achievements**: Earn rewards for reaching specific goals.
-- **Progression**: Expand your coffee empire and discover new features.
+## Ominaisuudet
+- **Kasvava pelattavuus**: Ansaitse pisteitä jokaisella klikkauksella.
+- **Päivitykset**: Käytä pisteitä klikkaustehokkuutesi parantamiseen.
+- **Saavutukset**: Avaa palkintoja saavuttamalla virstanpylväitä.
+- **Eteneminen**: Katso, kuinka pistemääräsi kasvaa eksponentiaalisesti pelatessasi.
 
-## How to Play
-1. Start by clicking the coffee bean to collect beans.
-2. Use the beans to buy upgrades and tools.
-3. Automate your production to earn beans even when you're not clicking.
-4. Keep upgrading and expanding to maximize your coffee bean collection.
+Nauti haasteesta optimoida strategiasi ja saavuttaa uusia ennätyksiä!
 
-## Future Plans
-- Add new upgrades and tools.
-- Introduce special events and challenges.
-- Implement leaderboards to compete with friends.
+---
 
-Enjoy building your coffee empire in Coffee Bean Clicker!
+*Huom: Tämä sisältö on luotu tekoälyn avulla.*

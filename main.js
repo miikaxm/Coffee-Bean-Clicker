@@ -197,13 +197,6 @@ function CoffeeGalaxy(){
     }
 }
 
-function checkIfMax(){
-    if (coffeeMachines >= 100) coffeeMachineMax = true;
-    if (coffeeFarms >= 100) coffeeFarmMax = true;
-    if (coffeeFactorys >= 100) coffeeFactoryMax = true;
-    if (coffeeGalaxys >= 100) coffeeGalaxyMax = true;
-}
-
 function updateCosts(){
     // Update bpc
     let bpcText = document.getElementById("bpc")
